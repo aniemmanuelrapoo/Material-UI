@@ -1,11 +1,22 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Notes from './pages/Notes'
 import Create from './pages/Create'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { purple } from '@material-ui/core/colors';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#fefefe"
+    },
+    secondary: purple
+  }
+})
 
 
 function App() {
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -16,7 +27,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+      </ThemeProvider>
   );
 }
 
